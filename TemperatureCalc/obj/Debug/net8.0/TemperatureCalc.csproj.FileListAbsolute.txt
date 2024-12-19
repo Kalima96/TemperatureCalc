@@ -1,0 +1,15 @@
+C:\Koder\TemperatureCalc\bin\Debug\net8.0\TemperatureCalc.exe
+C:\Koder\TemperatureCalc\bin\Debug\net8.0\TemperatureCalc.deps.json
+C:\Koder\TemperatureCalc\bin\Debug\net8.0\TemperatureCalc.runtimeconfig.json
+C:\Koder\TemperatureCalc\bin\Debug\net8.0\TemperatureCalc.dll
+C:\Koder\TemperatureCalc\bin\Debug\net8.0\TemperatureCalc.pdb
+C:\Koder\TemperatureCalc\obj\Debug\net8.0\TemperatureCalc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Koder\TemperatureCalc\obj\Debug\net8.0\TemperatureCalc.AssemblyInfoInputs.cache
+C:\Koder\TemperatureCalc\obj\Debug\net8.0\TemperatureCalc.AssemblyInfo.cs
+C:\Koder\TemperatureCalc\obj\Debug\net8.0\TemperatureCalc.csproj.CoreCompileInputs.cache
+C:\Koder\TemperatureCalc\obj\Debug\net8.0\TemperatureCalc.sourcelink.json
+C:\Koder\TemperatureCalc\obj\Debug\net8.0\TemperatureCalc.dll
+C:\Koder\TemperatureCalc\obj\Debug\net8.0\refint\TemperatureCalc.dll
+C:\Koder\TemperatureCalc\obj\Debug\net8.0\TemperatureCalc.pdb
+C:\Koder\TemperatureCalc\obj\Debug\net8.0\TemperatureCalc.genruntimeconfig.cache
+C:\Koder\TemperatureCalc\obj\Debug\net8.0\ref\TemperatureCalc.dll
