@@ -1,14 +1,19 @@
 ﻿namespace TemperatureCalc
 {
-    internal class Program
+    internal class Program 
     {
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
+            //Arrayen själv är ett objekt, och varje plats i arrayen kan hålla ett objekt av typen Month
             Month[] DagariMaj = new Month[31];
             for (int i = 0; i < 31; i++)
             {
-                DagariMaj[i] = new Month($"Dag {i + 1}");
+                //Index i startar på 0 pga en array och vi vill att första dagen ska heta "Dag 1", inte "Dag 0".
+                //Så vi adderar i med +1 för att få det att börja på dag 1 med en interpolerad sträng
+                DagariMaj[i] = new Month($"Dag {i + 1}"); //Month-objekt med en parameter $"Dag {i + 1}
             }
+
+            //Val till alla user storys
             Console.WriteLine("Skriv A om du vill du se temperaturdata för varje dag i maj\nSkriv B om du vill veta medeltemperaturen i maj");
             Console.WriteLine("Skriv C om du vill hitta den dag i maj med högsta temperaturen och identifiera den varmaste dagen\nSkriv D om du vill hitta den dag i maj med lägsta temperaturen och identifiera den kallaste dagen");
             Console.WriteLine("Skriv E för att få fram mediantemperaturen för majmånad\nSkriv F om du vill sortera temperaturerna i stigande eller fallande ordning");
@@ -19,11 +24,11 @@
             switch (answer)
             {
                 case "a":
-
+                    //itirerar över objekt i arrayen
                     Console.WriteLine("temperaturdata för varje dag i maj:");
                     foreach (var dag in DagariMaj)
                     {
-                        Console.WriteLine($"{dag.Dagen}: {dag.Temp}°C");
+                        Console.WriteLine($"{dag.Dagen}: {dag.Temp}°C"); //använder objektet 'dag'
                     }
 
                     break;
@@ -31,6 +36,7 @@
 
 
                 case "b":
+                    //Manuell beräkning av Medeltemperaturen baserad på gränserna 15-25
                     int kall = 15;
                     int varm = 25;
                     int Medeltemperaturen = (kall + varm) / 2;
@@ -43,12 +49,12 @@
 
                 case "c":
 
-                    // Kontrollera om någon dag har temperaturen 25°C
+                    //Kollar om någon dag har temperaturen 25°C
                     bool finnsTemperatur25 = false;
 
                     foreach (var dag in DagariMaj)
                     {
-                        if (dag.Temp == 25) // Jämförelseoperatorn "=="
+                        if (dag.Temp == 25) // Jämförelseoperatorn "== lika med"
                         {
                             Console.WriteLine($"{dag.Dagen} har temperaturen 25°C. Varamaste dagen");
                             finnsTemperatur25 = true;
@@ -66,12 +72,12 @@
 
                 case "d":
 
-                    // Kontrollera om någon dag har temperaturen 25°C
+                    //Kollar om någon dag har temperaturen 15°C
                     bool finnsTemperatur15 = false;
 
                     foreach (var dag in DagariMaj)
                     {
-                        if (dag.Temp == 15) // Jämförelseoperatorn "=="
+                        if (dag.Temp == 15)
                         {
                             Console.WriteLine($"{dag.Dagen} har temperaturen 15°C. kallaste dagen");
                             finnsTemperatur15 = true;
@@ -98,6 +104,7 @@
 
 
                 case "f":
+                    //Sorterar temperaturerna i stigande eller fallande ordning med variatoner av .OrderBy och .ToList
                     Console.WriteLine("Vill du ha temperaturerna i stigande eller fallande ordning? (Skriv 'stigande' eller 'fallande')");
                     string ordning = Console.ReadLine().ToLower();
 
@@ -128,17 +135,17 @@
 
                     break;
 
-
+                    
 
                 case "g":
                     Console.WriteLine("Här är varma dagar då temperaturen är 20°C eller över.");
 
-                    // Kontrollera om dagar har >=20°C
+                    //Kontrollera om dagar har lika med eller över 20 grader >=20°C
                     bool finnsTemperaturOver20 = false;
 
                     foreach (var dag in DagariMaj)
                     {
-                        if (dag.Temp >= 20) // Kontrollerar om temperaturen är över 20°C
+                        if (dag.Temp >= 20) //Kontrollerar om temperaturen är över 20°C
                         {
                             Console.WriteLine($"{dag.Dagen} har temperaturen {dag.Temp}°C.");
                             finnsTemperaturOver20 = true;
@@ -156,7 +163,7 @@
 
                 case "h":
                     Console.WriteLine("Skriv in en dag i maj med siffra för att få den dagens temp samt temperaturen för dagen före och efter\n");
-
+                    //[input -1 och +1] gör att vi skriver ut dagen inann och dagen efter
                     int input = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine($"{DagariMaj[input - 1].Dagen} har temperaturen {DagariMaj[input - 1].Temp}°C. ");
                     Console.WriteLine($"{DagariMaj[input].Dagen} har temperaturen {DagariMaj[input].Temp}°C. ");
@@ -167,16 +174,16 @@
 
 
                 case "i":
-
+                    //Visar den vanligast förekommande temperaturen i maj
                     Console.WriteLine("Här är den vanligast förekommande temperaturen i maj:");
 
-                    // Grupp och räkna temperaturer
                     var vanligasteTemperatur = DagariMaj
 
-                    .GroupBy(dag => dag.Temp) // Grupp efter temperatur
-                    .OrderByDescending(grupp => grupp.Count()) // Sortera efter antal i fallande ordning
-                    .First(); // Hämta den vanligaste gruppen
+                    .GroupBy(dag => dag.Temp) //Grupperar temperaturerna
+                    .OrderByDescending(grupp => grupp.Count()) //Sortera efter antal i fallande ordning
+                    .First(); //Hämtar den mest förekommande temperaturen genom att räkna alla gånger den landar
 
+                    //Resultatet
                     Console.WriteLine($"Den vanligast förekommande temperaturen är {vanligasteTemperatur.Key}°C och förekommer {vanligasteTemperatur.Count()} gånger.");
 
                     break;
